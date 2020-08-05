@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>User Input</title>
+    <!--
+    <script> tags for JS
+    -->
+    <script>
+      function greet()
+      {
+      /* The document.querySelector() function is going to try and
+      find an HMTL element that matches a particular name. the
+      hashtag before name indicates it's an id tag its searching for
+      (just 'name' in this case). The dot value is asking for the
+      "value" attribute contained Within the text input element
+      (otherwise it would be trying to return whole input element)*/
+        let name = document.querySelector('#name').value;
+        /* If name text box is blank then empty name variable
+        is filled with 'world' so it reads Aloha, world!*/
+        if (name === '')
+        {
+          name = 'world';
+        }
+        alert('Aloha, ' + name + '!');
+        /*  innerHTML allows, rather than just read HTML data, the ability to
+        modify the HTML element/s identified by the document.querySelector()
+        function. This replaces everything within the (<div>) HTML element! */
+        document.querySelector('#result').innerHTML = 'Aloha, ' + name + '!';
+      }
+    </script>
+  </head>
+  <body>
+    <!--
+    form element has an attribute called 'onsubmit' which
+    recognises when 'submit' type button is pressed within it.
+    return is false in this case to cancel out normal behaviour
+    after submit which is to proceed to a new page.
+    -->
+    <form onsubmit="greet(); return false">
+      <input type="text" id="name">
+      <input type="submit">
+    </form>
+
+    <!--
+    Division element here with "result" assigned as ID.
+
+    -->
+    <p/>
+    <div id="result">
+
+      I'm currently sitting happily in this div. I sure hope nothing replaces me...
+    </div>
+  </body>
+</html>
